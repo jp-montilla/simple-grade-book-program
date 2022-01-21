@@ -18,7 +18,7 @@
                             <h5>Input Grades</h5>
                             <textarea id="inputGrades" cols="30" rows="10"></textarea>
                             <div class="submit-btn">
-                                <button type="button" onclick="add_element_to_array();">Submit</button>
+                                <button type="button" onclick="appendStudentGrades();">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -35,31 +35,11 @@
                                         <th>Grade</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>January</td>
-                                        <td>$100</td>
-                                      </tr>
-                                      <tr>
-                                        <td>February</td>
-                                        <td>$80</td>
-                                      </tr>
-                                      <tr>
-                                        <td>January</td>
-                                        <td>$100</td>
-                                      </tr>
-                                      <tr>
-                                        <td>February</td>
-                                        <td>$80</td>
-                                      </tr>
-                                      <tr>
-                                        <td>January</td>
-                                        <td>$100</td>
-                                      </tr>
-                                  </tbody>
+                                <tbody id="tableBody"> 
+                                </tbody>
                             </table>
                             <div class="submit-btn">
-                                <button type="button">Clear Grades</button>
+                                <button type="button" onclick="clearGrades()">Clear Grades</button>
                                 <button type="button">Compute Average Grade</button>
                             </div>
                         </form>
@@ -72,24 +52,29 @@
 
 
     <script>
-        var x = 0
         var gradesArr = Array()
 
-        function add_element_to_array()
+        function appendStudentGrades()
         {
             var studentGrades = document.getElementById("inputGrades").value.split(/\r?\n/)
 
             studentGrades.forEach(function (item, index) {
                 var data = item.split(' ')
-                var insert = {
-                    name: data[0],
-                    grade: data[1]
-                }
-                gradesArr[x]= insert
-                x++
-            });
+                gradesArr.push(parseInt(data[1]))
 
-            console.log(gradesArr);
+                var tableBody = document.getElementById("tableBody");
+                var row = tableBody.insertRow(-1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                cell1.innerHTML = data[0];
+                cell2.innerHTML = parseInt(data[1]);
+            });
+        }
+
+        function clearGrades() {
+            var tableBody = document.getElementById('tableBody')
+            tableBody.innerHTML = '';
+            gradesArr = Array()
         }
     </script>
 </body>
