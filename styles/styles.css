@@ -1,0 +1,211 @@
+body {
+  margin: 8px;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background: url("https://edukasyon-exam-site.s3-ap-southeast-1.amazonaws.com/static/media/bg.acc1943c.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow-y: auto;
+}
+
+.container .main {
+  padding: 0 35px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: auto;
+}
+
+.container .main .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: calc(100% + 24px);
+  margin: -12px;
+}
+
+.container .main .row .input-area {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  max-width: 33.33333%;
+  -ms-flex-preferred-size: 33.33333%;
+      flex-basis: 33.33333%;
+  padding: 12px;
+}
+
+.container .main .row .input-area__form {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.container .main .row .input-area__form form {
+  padding: 24px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+}
+
+.container .main .row .input-area__form form h5 {
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: 0em;
+  margin: 0;
+}
+
+.container .main .row .input-area__form form .submit-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .main .row .input-area__form form .submit-btn button {
+  color: white;
+  background-color: #3f51b5;
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  border: none;
+  outline: none;
+  padding: 6px 16px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  min-width: 100px;
+  max-width: 250px;
+}
+
+.container .main .row .input-area__form form .submit-btn button:hover {
+  cursor: pointer;
+}
+
+.container .main .row .input-area__form form .submit-btn {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.container .main .row .input-area textarea {
+  font-size: 1rem;
+  margin: 20px 0;
+}
+
+.container .main .row .table-area {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  max-width: 66.66667%;
+  -ms-flex-preferred-size: 66.66667%;
+      flex-basis: 66.66667%;
+  padding: 12px;
+}
+
+.container .main .row .table-area__form {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.container .main .row .table-area__form form {
+  padding: 24px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+}
+
+.container .main .row .table-area__form form h5 {
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: 0em;
+  margin: 0;
+}
+
+.container .main .row .table-area__form form .submit-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .main .row .table-area__form form .submit-btn button {
+  color: white;
+  background-color: #3f51b5;
+  -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  border: none;
+  outline: none;
+  padding: 6px 16px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  min-width: 100px;
+  max-width: 250px;
+}
+
+.container .main .row .table-area__form form .submit-btn button:hover {
+  cursor: pointer;
+}
+
+.container .main .row .table-area__form form .submit-btn {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .main .row .table-area table {
+  margin: 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e4e4;
+}
+
+.container .main .row .table-area table thead {
+  background-color: #e5e4e4;
+  line-height: 3rem;
+}
+
+.container .main .row .table-area table tbody tr {
+  line-height: 1.5rem;
+  text-align: center;
+}
+/*# sourceMappingURL=styles.css.map */
