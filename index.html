@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
-    <title>Document</title>
+    <title>Class Average Calculator</title>
 </head>
 <body>
     <div class="container">
@@ -28,6 +28,7 @@
                     <div class="table-area__form">
                         <form>
                             <h5>Student Grades</h5>
+                            <h5 id="classAverage" class="d-none average"></h5>
                             <table>
                                 <thead>
                                     <tr>
@@ -38,9 +39,10 @@
                                 <tbody id="tableBody"> 
                                 </tbody>
                             </table>
+
                             <div class="submit-btn">
                                 <button type="button" onclick="clearGrades()">Clear Grades</button>
-                                <button type="button">Compute Average Grade</button>
+                                <button type="button" onclick="computeAverageGrade()">Compute Average Grade</button>
                             </div>
                         </form>
                     </div>
@@ -53,29 +55,44 @@
 
     <script>
         var gradesArr = Array()
+        var averageEl = document.getElementById("classAverage");
 
-        function appendStudentGrades()
-        {
+        function appendStudentGrades() {
+            averageEl.classList.add("d-none");
             var studentGrades = document.getElementById("inputGrades").value.split(/\r?\n/)
 
             studentGrades.forEach(function (item, index) {
                 var data = item.split(' ')
-                gradesArr.push(parseInt(data[1]))
+                gradesArr.push(parseFloat(data[1]).toFixed(2))
 
                 var tableBody = document.getElementById("tableBody");
                 var row = tableBody.insertRow(-1);
                 var cell1 = row.insertCell(0);
                 var cell2 = row.insertCell(1);
                 cell1.innerHTML = data[0];
-                cell2.innerHTML = parseInt(data[1]);
+                cell2.innerHTML = parseFloat(data[1]).toFixed(2);
             });
+
+            document.getElementById("inputGrades").value = ''
         }
 
         function clearGrades() {
+            averageEl.classList.add("d-none");
             var tableBody = document.getElementById('tableBody')
             tableBody.innerHTML = '';
             gradesArr = Array()
         }
+
+        function computeAverageGrade() {
+            var sum = gradesArr.reduce(function(a, b){
+                return parseFloat(a) + parseFloat(b);
+            }, 0);
+
+            var average = parseFloat(( sum / gradesArr.length ).toFixed(2))
+            averageEl.innerText = 'Class Average: ' + average
+            averageEl.classList.remove("d-none");
+        }
+
     </script>
 </body>
 </html>

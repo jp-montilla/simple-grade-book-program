@@ -2,6 +2,10 @@ body {
   margin: 8px;
 }
 
+.d-none {
+  display: none;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -79,10 +83,20 @@ body {
   margin: 0;
 }
 
+.container .main .row .input-area__form form h5.average {
+  padding: 5px 0;
+  margin: 5px 0;
+  border-top: 1px solid #b8b8b8;
+  border-bottom: 1px solid #b8b8b8;
+}
+
 .container .main .row .input-area__form form .submit-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .container .main .row .input-area__form form .submit-btn button {
@@ -106,12 +120,6 @@ body {
 
 .container .main .row .input-area__form form .submit-btn button:hover {
   cursor: pointer;
-}
-
-.container .main .row .input-area__form form .submit-btn {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
 .container .main .row .input-area textarea {
@@ -158,10 +166,20 @@ body {
   margin: 0;
 }
 
+.container .main .row .table-area__form form h5.average {
+  padding: 5px 0;
+  margin: 5px 0;
+  border-top: 1px solid #b8b8b8;
+  border-bottom: 1px solid #b8b8b8;
+}
+
 .container .main .row .table-area__form form .submit-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .container .main .row .table-area__form form .submit-btn button {
@@ -185,12 +203,6 @@ body {
 
 .container .main .row .table-area__form form .submit-btn button:hover {
   cursor: pointer;
-}
-
-.container .main .row .table-area__form form .submit-btn {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .container .main .row .table-area table {
