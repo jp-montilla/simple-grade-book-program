@@ -69,5 +69,28 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        var x = 0
+        var gradesArr = Array()
+
+        function add_element_to_array()
+        {
+            var studentGrades = document.getElementById("inputGrades").value.split(/\r?\n/)
+
+            studentGrades.forEach(function (item, index) {
+                var data = item.split(' ')
+                var insert = {
+                    name: data[0],
+                    grade: data[1]
+                }
+                gradesArr[x]= insert
+                x++
+            });
+
+            console.log(gradesArr);
+        }
+    </script>
 </body>
 </html>
