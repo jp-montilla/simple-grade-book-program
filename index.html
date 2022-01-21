@@ -16,6 +16,7 @@
                     <div class="input-area__form">
                         <form>
                             <h5>Input Grades</h5>
+                            <label id="inputErrorMsg" class="d-none text-danger"></label>
                             <textarea id="inputGrades" cols="30" rows="10"></textarea>
                             <div class="submit-btn">
                                 <button type="button" onclick="appendStudentGrades();">Submit</button>
@@ -58,22 +59,46 @@
         var gradesArr = Array()
         var averageEl = document.getElementById("classAverage");
         var averageErrorEl = document.getElementById("classAverageErrorMsg");
+        var inputErrorEl = document.getElementById("inputErrorMsg");
+
+
+        function validateInput() {
+            var inputEl = document.getElementById("inputGrades").value
+            
+            var studentGrades = inputEl.trim().split(/\r?\n/)
+
+            for (let i = 0; i < studentGrades.length; i++) {
+                var input = studentGrades[i].trim().split(' ')
+                if (input.length != 2) return 0
+                if (isNaN(input[1])) return 0
+            }
+
+            return 1
+        }
 
         function appendStudentGrades() {
             reset()
-            var studentGrades = document.getElementById("inputGrades").value.trim().split(/\r?\n/)
+            if (validateInput()) {
+                inputErrorEl.classList.add("d-none");
+                var studentGrades = document.getElementById("inputGrades").value.trim().split(/\r?\n/)
 
-            studentGrades.forEach(function (item, index) {
-                var data = item.split(' ')
-                gradesArr.push(parseFloat(data[1]).toFixed(2))
+                studentGrades.forEach(function (item, index) {
+                    var data = item.split(' ')
+                    gradesArr.push(parseFloat(data[1]).toFixed(2))
 
-                var tableBody = document.getElementById("tableBody");
-                var row = tableBody.insertRow(-1);
-                row.insertCell(0).innerHTML = data[0];
-                row.insertCell(1).innerHTML = parseFloat(data[1]).toFixed(2);
-            });
+                    var tableBody = document.getElementById("tableBody");
+                    var row = tableBody.insertRow(-1);
+                    row.insertCell(0).innerHTML = data[0];
+                    row.insertCell(1).innerHTML = parseFloat(data[1]).toFixed(2);
+                });
 
-            document.getElementById("inputGrades").value = ''
+                document.getElementById("inputGrades").value = ''
+            }
+            else {
+                inputErrorEl.innerText = 'Invalid format'
+                inputErrorEl.classList.remove("d-none");
+            }
+            
         }
 
         function clearGrades() {
@@ -102,6 +127,7 @@
         function reset() {
             averageEl.classList.add("d-none");
             averageErrorEl.classList.add("d-none");
+            inputErrorEl.classList.add("d-none");
         }
 
         function showAverageMsg() {
