@@ -29,6 +29,7 @@
                         <form>
                             <h5>Student Grades</h5>
                             <h5 id="classAverage" class="d-none average"></h5>
+                            <label id="classAverageErrorMsg" class="d-none text-danger"></label>
                             <table>
                                 <thead>
                                     <tr>
@@ -56,10 +57,11 @@
     <script>
         var gradesArr = Array()
         var averageEl = document.getElementById("classAverage");
+        var averageErrorEl = document.getElementById("classAverageErrorMsg");
 
         function appendStudentGrades() {
-            averageEl.classList.add("d-none");
-            var studentGrades = document.getElementById("inputGrades").value.split(/\r?\n/)
+            reset()
+            var studentGrades = document.getElementById("inputGrades").value.trim().split(/\r?\n/)
 
             studentGrades.forEach(function (item, index) {
                 var data = item.split(' ')
@@ -67,30 +69,49 @@
 
                 var tableBody = document.getElementById("tableBody");
                 var row = tableBody.insertRow(-1);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                cell1.innerHTML = data[0];
-                cell2.innerHTML = parseFloat(data[1]).toFixed(2);
+                row.insertCell(0).innerHTML = data[0];
+                row.insertCell(1).innerHTML = parseFloat(data[1]).toFixed(2);
             });
 
             document.getElementById("inputGrades").value = ''
         }
 
         function clearGrades() {
-            averageEl.classList.add("d-none");
+            reset()
             var tableBody = document.getElementById('tableBody')
             tableBody.innerHTML = '';
             gradesArr = Array()
         }
 
         function computeAverageGrade() {
-            var sum = gradesArr.reduce(function(a, b){
-                return parseFloat(a) + parseFloat(b);
-            }, 0);
+            if (gradesArr.length < 1) {
+                averageErrorEl.innerText = 'Please input a student/s\' grade';
+                showAverageErrorMsg()
+            } else {
+                var sum = gradesArr.reduce(function(a, b){
+                    return parseFloat(a) + parseFloat(b);
+                }, 0);
+    
+                var average = parseFloat(( sum / gradesArr.length ).toFixed(2))
+                averageEl.innerText = 'Class Average: ' + average
+                showAverageMsg()
+            }
+        }
+        
 
-            var average = parseFloat(( sum / gradesArr.length ).toFixed(2))
-            averageEl.innerText = 'Class Average: ' + average
+        function reset() {
+            averageEl.classList.add("d-none");
+            averageErrorEl.classList.add("d-none");
+        }
+
+        function showAverageMsg() {
             averageEl.classList.remove("d-none");
+            averageErrorEl.classList.add("d-none");
+        }
+
+        function showAverageErrorMsg() {
+            averageErrorEl.classList.remove("d-none");
+            averageEl.classList.add("d-none");
         }
 
     </script>

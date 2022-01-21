@@ -6,6 +6,10 @@ body {
   display: none;
 }
 
+.text-danger {
+  color: red;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
