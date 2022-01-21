@@ -63,9 +63,7 @@
 
 
         function validateInput() {
-            var inputEl = document.getElementById("inputGrades").value
-            
-            var studentGrades = inputEl.trim().split(/\r?\n/)
+            var studentGrades = document.getElementById("inputGrades").value.trim().split(/\r?\n/)
 
             for (let i = 0; i < studentGrades.length; i++) {
                 var input = studentGrades[i].trim().split(' ')
