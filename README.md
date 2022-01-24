@@ -23,5 +23,5 @@ This site was built using [Javascript](https://www.javascript.com/) and [HTML](h
     ```
 2. Click submit button to add grades.
      > Repeat step 1 and 2 to input more students' name and grades.
-3. Click compute average grade button to compute class average
+3. Click compute average grade button to compute class average.
 4. Click clear grades button.
